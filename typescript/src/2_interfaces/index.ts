@@ -7,7 +7,7 @@
 // • Create an interface and implement it on a class
 // • Differentiate type aliases from interfaces
 
-export default () => {
+export default (() => {
   // ======== Exercise 2.1 ========
   // Instructions:
   // • Create an interface `CartItem` and replace the param's type with it
@@ -88,4 +88,4 @@ export default () => {
   user.id = 5; // not writable
 
   console.log(`User:`, user)
-}
+})();

@@ -8,7 +8,7 @@
 // • Convert specifically-typed functions to more
 //   flexible generic functions
 
-export default () => {
+export default (() => {
   // ======== Exercise 3.1 ========
   // Instructions:
   // • Add explicit parameter types and return type
@@ -159,4 +159,4 @@ export default () => {
   const incrementedByTwo = numberCollection.map((num) => num + 2);
 
   console.log('[Exercise 3.7]', `[${incrementedByTwo}] should deeply equal [3,4,5]`);
-}
+})();
