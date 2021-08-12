@@ -4,7 +4,9 @@
   "description": "Exercises for typescript",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tsc-build": "tsc",
+    "tsc-watch": "tsc --watch"
   },
   "keywords": [
     "typescript",
@@ -13,7 +15,6 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "tslint": "^5.12.1",
     "typescript": "^3.3.3"
   }
 }

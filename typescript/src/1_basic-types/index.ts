@@ -7,10 +7,11 @@
 // • Identify when type checking happens
 // • Afterwards we will analyze transpiler output
 
-export default () => {
+export default (() => {
   // ======== Exercise 1.1 ========
   // Instructions:
   // • Hover over red squigglies to inspect the TS errors.
+  //   (OR follow the steps present in /learning/typescript/README.md to view the TS errors in terminal)
   // • Hover over variables to inspect their types.
   // • Fix the error on line 18 by changing the value of pi to the expected type.
 
@@ -101,4 +102,4 @@ export default () => {
   function addInventory(name: string, quantity: number): string {
     return `Added ${quantity} ${name}s to inventory.`;
   }
-}
+})();

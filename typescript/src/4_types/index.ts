@@ -7,7 +7,7 @@
 // • Create and apply union and intersection types
 // • Use basic type guards (narrowing types w/ typeof, instanceof, etc.)
 
-export default () => {
+export default (() => {
 
   // ======== Exercise 4.0 ========
   // TypeScript is intelligent about the possible types of a variable,
@@ -210,4 +210,4 @@ export default () => {
   }
 
   console.log('[Exercise 4.4]', `We've got a ${interrogateAnimal()} on our hands!`);
-}
+})();

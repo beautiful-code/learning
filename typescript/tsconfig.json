@@ -1,12 +1,20 @@
 {
   "compilerOptions": {
+    "target": "es6",
     "module": "commonjs",
     "esModuleInterop": true,
-    "target": "es6",
     "moduleResolution": "node",
     "sourceMap": true,
     "outDir": "dist",
-    "strict": true
+    "strict": true,
+    "removeComments": true
   },
-  "lib": ["es2015"]
+  "lib": ["es2015"],
+  "include": [
+    "./src/1_basic-types",
+    // "./src/2_interfaces",
+    // "./src/3_functions",
+    // "./src/4_types",
+    // "./src/5_classes",
+  ]
 }

@@ -17,4 +17,16 @@
 
 ---
 ## Instructions
-`# TODO`
+
+1. Open `learning/javascript` directory in VSCode.
+2. Exercises for the above mentioned topics are present in their associated folders.
+3. Code the solutions in the `index.js` file.
+4. Run the file using the below command
+```
+    node <path/to/exercise_folder>
+
+    Example:
+    node arrays
+```
+
+### **Note: Complete the exercises in the above mentioned topics order**
