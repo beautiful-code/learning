@@ -20,7 +20,7 @@ func fib(n int) int {
 	if v, ok := m[n]; ok {
 		f = v
 	} else {
-		f = fib(n-1) + fib(n-1)
+		f = fib(n-1) + fib(n-2)
 		m[n] = f
 	}
 

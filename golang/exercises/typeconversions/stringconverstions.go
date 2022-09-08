@@ -1,23 +1,42 @@
 package typeconversions
 
-import "fmt"
+import (
+	"fmt"
+	"math"
+	"strconv"
+)
+
+func roundFloat(val float64, precision uint) float64 {
+	ratio := math.Pow(10, float64(precision))
+	return math.Round(val*ratio) / ratio
+}
 
 func stringToInt(str string) int {
 	// convert to int
+	res, err := strconv.Atoi(str)
+	if err != nil {
+		panic(err)
+	}
+	return res
 
-	return 0
 }
 
 func stringToFloat(str string) float64 {
 	// convert to float with 4 digits of precision
-
-	return 0
+	s, err := strconv.ParseFloat(str, 64)
+	if err != nil {
+		panic(err)
+	}
+	s = roundFloat(s, 4)
+	return s
 }
 
 func FloatToString(value float64) string {
 	// convert to float with 2 digits of precision
-
-	return "0"
+	value = roundFloat(value, 2)
+	s := fmt.Sprintf("%v", value)
+	fmt.Println( value)
+	return s
 }
 
 func TestStringConverstions() {
@@ -32,8 +51,8 @@ func TestStringConverstions() {
 		isFailed = true
 	}
 
-	if FloatToString(1/3) != "0.33" {
-		fmt.Println("Failed: stringToFloat")
+	if FloatToString(0.3333) != "0.33" {
+		fmt.Println("Failed: FloatToString")
 		isFailed = true
 	}
 
