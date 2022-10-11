@@ -15,7 +15,7 @@ export default (() => {
   // • Hover over variables to inspect their types.
   // • Fix the error on line 18 by changing the value of pi to the expected type.
 
-  let pi = '3.14159';
+  let pi: number = 3.14159;
   let tau = pi * 2;
 
   console.log('[Exercise 1.1]', `${tau} is ${pi} times two.`);
@@ -35,7 +35,7 @@ export default (() => {
   // Instructions:
   // • Inspect the error, then fix it.
 
-  let isMark: boolean;
+  let isMark: boolean = false;
 
   console.log('[Exercise 1.3]', `${isMark ? 'Oh, hi Mark' : 'Who are you?'}`);
 
@@ -90,7 +90,7 @@ export default (() => {
   // We want to represent an inventoryItem as a structure where
   // the first entry is the item name and the second is the quantity
 
-  const inventoryItem = ['fidget wibbit', 11];
+  const inventoryItem = ["fidget wibbit", 11];
 
   // later we destructure it
   const [name, qty] = inventoryItem;
@@ -99,7 +99,7 @@ export default (() => {
 
   console.log('[Exercise 1.6]', msg);
 
-  function addInventory(name: string, quantity: number): string {
+  function addInventory(name: string | number, quantity: string | number): string {
     return `Added ${quantity} ${name}s to inventory.`;
   }
 })();

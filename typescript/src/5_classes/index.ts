@@ -14,7 +14,7 @@ export default (() => {
   // • Add explicit return type to the greet method
 
   class MC {
-    greet(event = 'party') {
+    greet(event :string= 'party') :string{
       return `Welcome to the ${event}`;
     }
   }
@@ -29,7 +29,9 @@ export default (() => {
   // • Add typed parameters for storing values
 
   class Person {
-    constructor(name, age) {
+    name: string;
+    age: number;
+    constructor(name:string, age:number) {
       this.name = name;
       this.age = age;
     }
@@ -66,23 +68,26 @@ export default (() => {
   // • Make the Pony class inherit from Animal
   // • Make it so that the name member cannot be publicly accessed
 
-  class Animal {
-    constructor(name) {}
-    move(meters) {
+  abstract class Animal {
+    private name: string;
+    constructor(name:string) {
+      this.name=name
+    }
+    move(meters:number) {
       console.log(`${this.name} moved ${meters}m.`);
     }
   }
 
-  class Snake {
-    move(meters) {
+  class Snake extends Animal {
+    move(meters:number=5) {
       console.log('Slithering...');
       // should call on parent's `move` method, w/ a default
       // slither of 5 meters
     }
   }
 
-  class Pony {
-    move(meters) {
+  class Pony  extends Animal{
+    move(meters:number=60) {
       console.log('Galloping...');
       // should call on parent's `move` method, w/ a default
       // gallop of 60 meters
@@ -91,16 +96,16 @@ export default (() => {
 
   // The class Animal should not be instantiable.
   // Delete or comment out once the desired error is achieved.
-  const andrew = new Animal("Andrew the Animal");
-  andrew.move(5);
+  // const andrew = new Animal("Andrew the Animal");
+  // andrew.move(5);
 
   const sammy = new Snake("Sammy the Snake");
   sammy.move();
-  console.log(sammy.name); // Should return error
+  //console.log(sammy.name); // Should return error
 
   const pokey = new Pony("Pokey the Pony");
   pokey.move(34);
-  console.log(pokey.name); // Should return error
+  //console.log(pokey.name); // Should return error
 
   // ======== Exercise 5.5 ========
   // Goals:
@@ -108,7 +113,10 @@ export default (() => {
   //   manufacturer member
 
   class Furniture {
-    constructor(manufacturer: string = 'IKEA') {}
+    protected manufacturer:string;
+    constructor(manufacturer: string = 'IKEA') {
+      this.manufacturer = manufacturer;
+    }
   }
 
   class Desk extends Furniture {
@@ -125,18 +133,18 @@ export default (() => {
 
   const desk = new Desk();
   desk.kind();
-  desk.manufacturer; // Should return error
+  // desk.manufacturer; // Should return error
 
   const chair = new Chair();
   chair.kind();
-  chair.manufacturer; // Should return error
+ // chair.manufacturer; // Should return error
 
   // ======== Exercise 5.6 ========
   // Goals:
   // • Eliminate the error without changing references to `Student.school`
 
   class Student {
-    public school: string = 'Harry Herpson High School';
+    public static school: string = 'Harry Herpson High School';
     constructor(private name: string) {};
     introduction() {
       console.log('[Exercise 5.6]', `Hi, my name is ${this.name} and I attend ${Student.school}`);

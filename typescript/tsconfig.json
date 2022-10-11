@@ -11,10 +11,10 @@
   },
   "lib": ["es2015"],
   "include": [
-    "./src/1_basic-types",
-    // "./src/2_interfaces",
+    // "./src/1_basic-types",
+    //  "./src/2_interfaces",
     // "./src/3_functions",
     // "./src/4_types",
-    // "./src/5_classes",
+    "./src/5_classes",
   ]
 }

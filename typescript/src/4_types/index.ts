@@ -29,7 +29,7 @@ export default (() => {
     text; // text: null | undefined
   }
 
-  function trimmedLength2(text: string | null | undefined) {
+  function trimmedLength(text: string | null | undefined) {
     text; // text: string | null | undefined
 
     if (typeof text === 'string') {
@@ -79,7 +79,7 @@ export default (() => {
   // • Restrict type of `value` to `string OR number`
   // • Fix any resulting errors.
 
-  function doStuff(value: any): void {
+  function doStuff(value: string|number): void {
     if (typeof value === 'string') {
       console.log(value.toUpperCase().split('').join(' '));
     } else if (typeof value === 'number') {
@@ -93,8 +93,8 @@ export default (() => {
   doStuff(22);
   doStuff(222);
   doStuff('hello');
-  doStuff(true);
-  doStuff({});
+  doStuff("true");
+  doStuff("{}");
 
   console.log('[Exercise 4.1]');
 
@@ -103,6 +103,13 @@ export default (() => {
   // • Use a type guard to fill out the body of the `padLeft` function.
 
   function padLeft(value: string, padding: number | string): string {
+
+    if (typeof value === 'string') {
+      return padding + value;
+    } else if (typeof value === 'number') {
+      return `${Array(Number(padding) + 1).join(' ')}${value}`;
+    }
+    return ""
     // if padding is a number, return `${Array(padding + 1).join(' ')}${value}`
     // if padding is a string, return padding + value
   }
@@ -121,9 +128,9 @@ export default (() => {
   // • Inspect inferred type of `element` in different code branches
   // • Bonus: turn `flatten` into a generic function
 
-  const numbers = [1, 2, 3, [44, 55], 6, [77, 88], 9, 10];
+  const numbers : (number | number[])[] = [1, 2, 3, [44, 55], 6, [77, 88], 9, 10];
 
-  function flatten(array) {
+  function flatten(array: (number | number[])[]) {
     const flattened = [];
 
     for (const element of array) {
@@ -152,6 +159,16 @@ export default (() => {
   // • Use an `instanceof` type guard in `interrogateAnimal` to allow the fishes
   //   to swim the and birds to fly.
   // • Add any missing type annotations, being as explicit as possible.
+
+  type BirdLike = {
+  };
+
+  type FishLike = {
+    
+  };
+  
+  type Animal = Bird | Fish;
+
 
   interface EggLayer {
     layEggs(): void;
@@ -192,7 +209,7 @@ export default (() => {
   }
 
   function getRandomAnimal() {
-    const animals = [
+    const animals : Array < Animal > = [
       new Bird('puffin'),
       new Bird('kittiwake'),
       new Fish('sea robin'),
@@ -203,7 +220,9 @@ export default (() => {
   }
 
   function interrogateAnimal(animal = getRandomAnimal()) {
+   if( animal instanceof Fish)
     animal.swim(10) // call only if it is a fish
+    if( animal instanceof Bird)
     animal.fly(10); // call only if it is a bird
 
     return animal.species;
